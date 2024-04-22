@@ -30,12 +30,15 @@ namespace Cinema.Infra.Data.Repositories
             return await _context.Salas.FindAsync(id);
         }
 
-        public async Task<IEnumerable<Sala>> GetSalas()
+        public async Task<IEnumerable<Sala>> GetAll(int pagina, int tamanhoPagina)
         {
-            return await _context.Salas.Include(x => x.Filmes).ToListAsync();
+            return await _context.Salas
+                .Include(x => x.Filmes)
+                .Skip((pagina - 1) * tamanhoPagina)
+                .Take(tamanhoPagina)
+                .ToListAsync();
         }
 
-       
 
 
 

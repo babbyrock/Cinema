@@ -11,7 +11,7 @@ namespace Cinema.Application.Interfaces
     {
         Task<FilmeDTO> Add(FilmeRequestDTO salaDto);
         Task<FilmeDTO> Update(int id, FilmeRequestDTO salaDto);
-        Task<IEnumerable<FilmeDTO>> GetAll();
+        Task<IEnumerable<FilmeDTO>> GetAll(int pagina, int tamanhoPagina);
         Task<FilmeDTO> GetById(int? id);
         Task<FilmeDTO> Remove(int id);
     }

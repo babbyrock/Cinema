@@ -48,12 +48,12 @@ namespace Cinema.Application.Services
             return null;
         }
 
-        public async Task<IEnumerable<FilmeDTO>> GetAll()
+        public async Task<IEnumerable<FilmeDTO>> GetAll(int pagina, int tamanhoPagina)
         {
             try
             {
-                var entity = await _filmeRepository.GetFilmes();
-                return _mapper.Map<IEnumerable<FilmeDTO>>(entity);
+                var filmes = await _filmeRepository.GetAll(pagina, tamanhoPagina);
+                return _mapper.Map<IEnumerable<FilmeDTO>>(filmes);
             }
             catch (Exception)
             {

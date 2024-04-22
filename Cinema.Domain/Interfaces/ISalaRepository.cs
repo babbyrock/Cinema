@@ -9,7 +9,7 @@ namespace Cinema.Domain.Interfaces
 {
     public interface ISalaRepository
     {
-        Task<IEnumerable<Sala>> GetSalas();
+        Task<IEnumerable<Sala>> GetAll(int pagina, int tamanhoPagina);
         Task<Sala> GetById(int? id);
         Task<Sala> Create(Sala sala);
         Task<Sala> Update(Sala sala);

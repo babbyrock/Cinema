@@ -50,7 +50,7 @@ namespace Cinema.Tests
         {
             var controller = new SalasController(new SalaService(new SalaRepository(_fixture.Context), _mapper));
 
-            var result = await controller.Get();
+            var result = await controller.Get(1, 3);
 
             var okResult = Assert.IsType<OkObjectResult>(result.Result);
             var returnValue = Assert.IsAssignableFrom<IEnumerable<SalaDTO>>(okResult.Value);

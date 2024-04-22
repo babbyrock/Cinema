@@ -43,15 +43,16 @@ namespace Cinema.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FilmeDTO>>> GetAll()
+        public async Task<ActionResult<IEnumerable<FilmeDTO>>> GetAll([FromQuery] int pagina = 1 , [FromQuery] int tamanhoPagina = 10)
         {
-            var filmes = await _filmeService.GetAll();
+            var filmes = await _filmeService.GetAll(pagina, tamanhoPagina);
             if (filmes == null)
             {
-                return NotFound("Filmes não encontradas!");
+                return NotFound("Filmes não encontrados!");
             }
             return Ok(filmes);
         }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<FilmeDTO>> GetById(int id)

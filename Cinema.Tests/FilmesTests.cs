@@ -58,7 +58,7 @@ namespace Cinema.Tests
         {
             var controller = new FilmesController(new FilmeService(new FilmeRepository(_fixture.Context), _mapper));
 
-            var result = await controller.GetAll();
+            var result = await controller.GetAll(1, 3);
 
             var okResult = Assert.IsType<OkObjectResult>(result.Result);
             var returnValue = Assert.IsAssignableFrom<IEnumerable<FilmeDTO>>(okResult.Value);

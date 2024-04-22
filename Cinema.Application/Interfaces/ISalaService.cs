@@ -9,7 +9,7 @@ namespace Cinema.Application.Interfaces
 {
     public interface ISalaService
     {
-        Task<IEnumerable<SalaDTO>> GetAll();
+        Task<IEnumerable<SalaDTO>> GetAll(int pagina, int tamanhoPagina);
         Task<SalaDTO> GetById(int? id);
         Task<SalaDTO> Add(SalaDTO salaDto);
         Task<SalaDTO> Update(SalaDTO salaDto);

@@ -13,8 +13,6 @@ namespace Cinema.Application.Mappings
     {
         public DomainToDTOMappingProfile() {
             CreateMap<Sala, SalaDTO>().ReverseMap();
-            CreateMap<IEnumerable<Sala>, IEnumerable<SalaDTO>>();
-            CreateMap<IEnumerable<SalaDTO>, IEnumerable<Sala>>();
             CreateMap<SalaDTO, Sala>().ReverseMap();
             CreateMap<Filme, FilmeDTO>().ReverseMap();
             CreateMap<Filme, FilmeRequestDTO>().ReverseMap();

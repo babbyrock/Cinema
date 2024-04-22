@@ -23,18 +23,18 @@ namespace Cinema.Application.Services
         }
 
 
-            public async Task<IEnumerable<SalaDTO>> GetAll()
+        public async Task<IEnumerable<SalaDTO>> GetAll(int pagina, int tamanhoPagina)
+        {
+            try
             {
-                try
-                {
-                    var salaEntity = await _salaRepository.GetSalas();
-                    return _mapper.Map<IEnumerable<SalaDTO>>(salaEntity);
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
+                var salas = await _salaRepository.GetAll(pagina, tamanhoPagina);
+                return _mapper.Map<IEnumerable<SalaDTO>>(salas);
             }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public async Task<SalaDTO> GetById(int? id)
         {

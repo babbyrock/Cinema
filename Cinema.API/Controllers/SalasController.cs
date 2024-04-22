@@ -18,15 +18,16 @@ namespace Cinema.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SalaDTO>>> Get()
+        public async Task<ActionResult<IEnumerable<SalaDTO>>> Get([FromQuery] int pagina = 1, [FromQuery] int tamanhoPagina = 10)
         {
-            var salas = await _salaService.GetAll();
-            if(salas == null)
+            var salas = await _salaService.GetAll(pagina, tamanhoPagina);
+            if (salas == null)
             {
                 return NotFound("Salas não encontradas!");
             }
             return Ok(salas);
         }
+
 
 
         [HttpGet("{id}", Name = "GetSala")]
